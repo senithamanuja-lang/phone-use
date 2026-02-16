@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAZPER | Smart Phone Learning Platform</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+    body {
+      background: linear-gradient(135deg, #020617, #1e3a8a);
+      color: #111827;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: rgba(0,0,0,0.7);
+      color: #fff; padding: 30px 15px; text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    header h1 { font-size: 2.8rem; color: #60a5fa; letter-spacing: 3px; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #020617; padding: 14px 24px; flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-links { display: flex; gap: 22px; }
+
+    nav a { color: #93c5fd; text-decoration: none; font-weight: 600; transition: 0.3s; }
+    nav a:hover { color: #fff; transform: scale(1.08); }
+
+    .signin-btn {
+      background: linear-gradient(45deg,#3b82f6,#2563eb);
+      color: white; padding: 9px 18px; border-radius: 25px;
+      cursor: pointer; border: none; font-weight: bold; transition: 0.3s;
+    }
+
+    .signin-btn:hover { transform: scale(1.1); }
+
+    .hero {
+      text-align: center; padding: 80px 20px 40px; color: #fff;
+    }
+
+    .hero h2 { font-size: 2.2rem; margin-bottom: 10px; }
+
+    .hero button {
+      margin-top: 20px; padding: 14px 26px; border: none; border-radius: 30px;
+      background: #3b82f6; color: white; font-weight: bold; cursor: pointer; transition: 0.3s;
+      box-shadow: 0 8px 25px rgba(59,130,246,0.5);
+    }
+
+    .hero button:hover { transform: scale(1.12); }
+
+    .container {
+      max-width: 1200px; margin: 40px auto; padding: 20px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px;
+    }
+
+    .card {
+      background: #fff; padding: 24px; border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      transition: 0.4s ease; position: relative; overflow: hidden;
+    }
+
+    .card:hover { transform: translateY(-10px) scale(1.03); }
+
+    .sidebar {
+      position: fixed; top: 0; right: -320px; width: 300px; height: 100%;
+      background: #fff; box-shadow: -4px 0 25px rgba(0,0,0,0.4);
+      padding: 25px; transition: 0.4s ease; z-index: 1000;
+    }
+
+    .sidebar.active { right: 0; }
+
+    .close-btn { float: right; cursor: pointer; font-size: 20px; }
+
+    input { width: 100%; padding: 11px; margin-top: 10px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ccc; }
+
+    button.primary {
+      width: 100%; padding: 12px; border: none; border-radius: 25px;
+      background: #2563eb; color: #fff; font-weight: bold; cursor: pointer; transition: 0.3s;
+    }
+
+    button.primary:hover { transform: scale(1.05); }
+
+    footer {
+      background: #020617; color: #cbd5e1; text-align: center; padding: 25px; margin-top: 60px;
+      font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CAZPER</h1>
+  <p>Smart Phone භාවිතා කිරීම ඉගෙනගන්න Modern Sinhala Learning Platform</p>
+</header>
+
+<nav>
+  <div class="nav-links">
+    <a href="#lessons">Lessons</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="signin-btn" onclick="openSidebar()">Sign In</button>
+</nav>
+
+<section class="hero">
+  <h2>Beginner ඉඳලා Pro වෙනකම් Phone Course එක</h2>
+  <p>Video lessons, simple guides, real learning experience</p>
+  <button onclick="document.getElementById('lessons').scrollIntoView()">Start Learning</button>
+</section>
+
+<section class="container" id="lessons">
+  <div class="card"><h3>📱 Phone Basics</h3><p>On/Off, Touch, Settings, Calls.</p></div>
+  <div class="card"><h3>🌐 Internet</h3><p>Wi‑Fi, Data, Google search, YouTube.</p></div>
+  <div class="card"><h3>⬇️ Apps</h3><p>Install, Update, Delete apps safely.</p></div>
+  <div class="card"><h3>🔒 Safety</h3><p>Password, privacy, scam protection.</p></div>
+</section>
+
+<div class="sidebar" id="sidebar">
+  <span class="close-btn" onclick="closeSidebar()">✖</span>
+  <h2>Sign In</h2>
+  <input type="text" id="username" placeholder="Username" />
+  <input type="password" id="password" placeholder="Password" />
+  <button class="primary" onclick="login()">Login</button>
+  <hr style="margin:15px 0">
+  <h3>Create Account</h3>
+  <input type="text" placeholder="New Username" />
+  <input type="password" placeholder="New Password" />
+  <button class="primary" onclick="alert('Signup demo success')">Sign Up</button>
+</div>
+
+<section class="container" id="contact">
+  <div class="card">
+    <h2>Contact CAZPER</h2>
+    <p>WhatsApp මඟින් සෘජුවම අප සමඟ සම්බන්ධ වන්න.</p>
+    <a href="https://wa.me/94712366242" target="_blank">
+      <button class="primary">💬 WhatsApp Chat</button>
+    </a>
+    <p style="margin-top:10px; font-size:0.9rem; color:#555;">WhatsApp Number: 071 236 6242</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 CAZPER • Smart Sinhala Phone Learning Platform • All Rights Reserved
+</footer>
+
+<script>
+function openSidebar(){ document.getElementById('sidebar').classList.add('active'); }
+function closeSidebar(){ document.getElementById('sidebar').classList.remove('active'); }
+
+function login(){
+  const u=document.getElementById('username').value;
+  const p=document.getElementById('password').value;
+  if(u==='admin'&&p==='1234') alert('Login Successful');
+  else alert('Invalid Details');
+}
+</script>
+
+</body>
+</html>
